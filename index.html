@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV - Sammreen Amir</title>
+    <style>
+      body {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f5f2;
+      }
+
+      .container {
+        width: 70%;
+        margin: 0 auto;
+        padding: 20mm;
+        margin-bottom: 1.5rem;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        page-break-after: always;
+      }
+
+      .page {
+        page-break-after: always;
+        margin-bottom: 2rem;
+      }
+
+      header {
+        margin-bottom: 20px;
+      }
+      #main {
+        display: flex;
+        flex-direction: row;
+      }
+      #left {
+        font-weight: bold;
+      }
+      #right {
+        margin-left: 7%;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 30px;
+        border-bottom: 3px solid rgb(189, 189, 189);
+        margin-bottom: 10px;
+      }
+
+      header p {
+        margin: 5px 0;
+        font-size: 16px;
+      }
+
+      header a {
+        color: #1a0dab;
+        text-decoration: none;
+      }
+      #summary {
+        margin-left: 17%;
+        text-align: justify;
+      }
+      #skills {
+        margin-left: 17%;
+      }
+      #skills .hed {
+        font-weight: bold;
+      }
+      .line {
+        font-size: 17px;
+      }
+      .exp-main {
+        width: 80%;
+        margin-left: 1rem;
+        margin-top: 5px;
+      }
+      .exp-main .exp-left {
+        width: 22%;
+        float: left;
+        font-weight: bold;
+      }
+      .exp-main .exp-right {
+        width: 75%;
+        float: right;
+      }
+
+      .exp-right .exp-right-heading {
+        font-weight: bold;
+      }
+      .exp-right .exp-right-content {
+        margin-left: 4%;
+      }
+      .lang-content {
+        margin-left: 1rem;
+      }
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        font-size: 24px;
+        border-bottom: 3px solid rgb(189, 189, 189);
+        margin-bottom: 10px;
+      }
+      hr {
+        width: 95%;
+        border: 1px solid rgb(215, 215, 215);
+      }
+
+      h3,
+      h4,
+      p,
+      ul,
+      li {
+        color: #333;
+      }
+
+      a {
+        color: #1a0dab;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+      .clear {
+        clear: both;
+      }
+      @media screen and (max-width: 506px) {
+        .container {
+          width: 100%;
+        }
+      }
+      @media screen and (max-width: 680px) {
+        .exp-main {
+          width: 100%;
+        }
+      }
+      @media screen and (max-width: 550px) {
+        .exp-main .exp-left {
+          float: none;
+          width: 100%;
+        }
+        .exp-main .exp-right {
+          float: none;
+          width: 100%;
+          margin-top: 10px;
+          margin-left: 5%;
+        }
+      }
+    </style>
+    <script>
+async function updateVisitorCount() {
+    const apiUrl = "https://us-central1-cloud-resume-sammreen.cloudfunctions.net/count-function"; 
+
+    try {
+        // Fetch the current count from the API (GET request)
+        const response = await fetch(apiUrl, { method: "GET" });
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch visitor count");
+        }
+
+        const data = await response.json();
+
+        // Check if 'count' is a valid number
+        if (typeof data.count !== 'number' || isNaN(data.count)) {
+            throw new Error("Invalid count value received");
+        }
+
+        // Display the current visitor count in the element with ID 'visitorCount'
+        document.getElementById("visitorCount").innerText = `Visitors: ${data.count}`;
+
+        // Increment the count (POST request)
+        const incrementResponse = await fetch(apiUrl, { method: "POST" });
+
+        if (!incrementResponse.ok) {
+            throw new Error("Failed to increment visitor count");
+        }
+
+        // After incrementing, fetch the updated count again and display it
+        const updatedResponse = await fetch(apiUrl, { method: "GET" });
+
+        if (!updatedResponse.ok) {
+            throw new Error("Failed to fetch updated visitor count");
+        }
+
+        const updatedData = await updatedResponse.json();
+
+        // Check if the updated data has a valid count
+        if (typeof updatedData.count !== 'number' || isNaN(updatedData.count)) {
+            throw new Error("Invalid updated count value received");
+        }
+
+        // Update the count on the page with the new count
+        document.getElementById("visitorCount").innerText = `Visitors: ${updatedData.count}`;
+
+    } catch (error) {
+        console.error("Error updating visitor count:", error);
+        document.getElementById("visitorCount").innerText = "Error updating visitor count.";
+    }
+}
+
+// Call the function to update the count on page load
+updateVisitorCount();
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Page 1 -->
+      <div class="page">
+        <header>
+          <!-- <h1>
+              Sammreen Amir
+              <span id="visitor-count">Loading...</span>
+          </h1> -->
+          <h1 style="display: flex; justify-content: space-between; align-items: center; margin: 0;">
+            Sammreen Amir
+            <span id="visitorCount" style="margin-left: auto; font-size: smaller;">Loading...</span>
+        </h1>
+          <hr />
+          <div id="main">
+              <div id="left">
+                  <p>Email</p>
+                  <p>Residence</p>
+                  <p>LinkedIn</p>
+                  <p>GitHub</p>
+              </div>
+              <div id="right">
+                  <p>
+                      <a href="mailto:sammreen786@gmail.com">sammreen786@gmail.com</a>
+                  </p>
+                  <p>Pakistan</p>
+                  <p>
+                      <a href="https://linkedin.com/in/sammreenamir">linkedin.com/in/sammreenamir</a>
+                  </p>
+                  <p>
+                      <a href="https://github.com/sammreenamir/" target="_blank">github.com/sammreenamir/</a>
+                  </p>
+              </div>
+          </div>
+      </header>
+        <section>
+          <h2>Professional Summary</h2>
+          <hr />
+          <div id="summary">
+            <!-- <p>
+              I am a dedicated DevOps Engineer with a strong web development background. My expertise includes automating deployment processes, managing CI/CD pipelines with Jenkins, CircleCI, GitHub, and GitLab, and optimizing system performance using Docker, Kubernetes, Nginx, and Ansible. I also have experience developing responsive UIs with HTML, CSS, JavaScript, and Bootstrap, as well as server-side programming with PHP and Laravel.
+            </p> -->
+            <p>
+              I am a passionate DevOps and Site Reliability Engineer (SRE) with a strong foundation in cloud technologies and web development. My expertise includes managing and deploying containerized applications using Docker, Podman, Kubernetes, and Singularity, as well as optimizing web servers like Nginx and Apache for high availability and performance. I excel in automating infrastructure with tools like Ansible and implementing end-to-end monitoring solutions using Grafana, Prometheus, Datadog, and Sensu.
+              <br><br>
+              I have extensive hands-on experience with the ELK Stack (Elasticsearch, Logstash, Kibana) and Metricbeat for log management and analytics, along with designing robust CI/CD pipelines utilizing GitHub Actions, GitLab, Jenkins, CircleCI, and ArgoCD for streamlined, automated deployments. My proficiency extends to Microsoft Azure services, including Azure Blob Storage, Azure Functions for serverless applications, Cosmos DB for scalable data storage, and Azure CDN for efficient content delivery. I am committed to optimizing system performance, improving infrastructure reliability, and enhancing the efficiency of development and operational processes.
+            </p>                       
+          </div>
+        </section>              
+        <section>
+          <h2>Skills</h2>
+          <hr />
+          <div id="skills">
+            <div class="skills-section">
+              <h3><strong>Technical Skills :</strong></h3>
+              <p>
+                <span class="hed"><strong>Containerization & Web Servers:</strong></span> Docker <span class="line">|</span> Podman 
+                <span class="line">|</span> Kubernetes <span class="line">|</span> Singularity <span class="line">|</span> Nginx
+                <br />
+                <span class="hed"><strong>Operating Systems:</strong></span> Windows <span class="line">|</span> AlmaLinux 
+                <span class="line">|</span> Ubuntu <span class="line">|</span> CentOS <span class="line">|</span> Linux Mint
+                <br />
+                <span class="hed"><strong>Monitoring & Logging:</strong></span> ELK Stack (Elasticsearch, Logstash, Kibana) 
+                <span class="line">|</span> Prometheus <span class="line">|</span> Grafana <span class="line">|</span> Metricbeat 
+                <span class="line">|</span> DataDog <span class="line">|</span> Sensu
+                <br />
+                <span class="hed"><strong>Cloud Platforms:</strong></span> Azure
+                <br />
+                <span class="hed"><strong>DevOps Tools:</strong></span> Git <span class="line">|</span> GitHub <span class="line">|</span> GitLab 
+                <span class="line">|</span> GitHub Actions <span class="line">|</span> GitLab CI/CD <span class="line">|</span> Jenkins 
+                <span class="line">|</span> CircleCI <span class="line">|</span> ArgoCD <span class="line">|</span> Harbor Docker Registry 
+                <span class="line">|</span> Docker Private Registry <span class="line">|</span> Ansible <span class="line">|</span> Helm 
+                <span class="line">|</span> ClickUp <span class="line">|</span> Slack
+                <br />
+                <span class="hed"><strong>Programming Languages:</strong></span> Bash <span class="line">|</span> HTML 
+                <span class="line">|</span> CSS <span class="line">|</span> JavaScript <span class="line">|</span> PHP 
+                <span class="line">|</span> MySQL <span class="line">|</span> C++ <span class="line">|</span> Java
+                <br />
+                <span class="hed"><strong>Frameworks:</strong></span> Bootstrap <span class="line">|</span> Laravel
+              </p>
+            </div>                       
+            <div class="skills-section">
+              <h3><strong>Soft Skills :</strong></h3>
+              <p>
+                <span>Team Leadership <span class="line">|</span> Project Management <span class="line">|</span> Strong Communication 
+                <span class="line">|</span> Problem Solving</span>
+              </p>
+            </div>
+            
+          </div>
+        </section>
+              
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="page">
+        <section>
+          <h2> Work Experience</h2>
+          <hr />
+          <div class="exp-main" style="margin-top: 2rem">
+            <div class="exp-left">
+              <span>June 2024 – Present</span>
+            </div>
+            <div class="exp-right">
+              <span class="exp-right-heading">Associate DevOps Engineer | Site Reliability Engineer (SRE)</span>
+              <br />
+              <span class="exp-right-content">Adan Institute of Technology • Pakistan</span>
+              <br />
+              <span class="exp-right-content">- Monitored system performance and implemented optimizations.</span>
+              <br />
+              <span class="exp-right-content">- Managed and deployed containerized applications using Docker, Podman, Kubernetes, and Singularity.</span>
+              <br />
+              <span class="exp-right-content">- Configured and optimized web servers using Nginx and Apache.</span>
+              <br />
+              <span class="exp-right-content">- Automated infrastructure tasks with Ansible.</span>
+              <br />
+              <span class="exp-right-content">- Implemented monitoring solutions using Grafana, Prometheus, Datadog, and Senus.</span>
+              <br />
+              <span class="exp-right-content">- Worked with ELK Stack (Elasticsearch, Logstash, Kibana) and Metricbeat for log management and system monitoring.</span>
+              <br />
+              <span class="exp-right-content">- Implemented CI/CD pipelines using GitHub Actions, GitLab, Jenkins, CircleCI, and ArgoCD with Kubernetes for GitOps-based deployment.</span>
+              <br />
+              <span class="exp-right-content">- Managed Docker Private Registry with Harbor.</span>
+              <br />
+              <span class="exp-right-content">- Experienced in version control and collaboration using Git, GitHub, and GitLab.</span>
+              <br />
+              <span class="exp-right-content">- Utilized Microsoft Azure services, including Azure Blob Storage for static apps, Azure Function App with HTTP trigger function API, Cosmos DB for data storage, and Azure CDN for content delivery.</span>
+              <br />
+              <span class="exp-right-content">- Implemented CI/CD pipelines using Azure ARM templates with GitHub Actions for streamlined deployment.</span>
+          </div>          
+          </div>
+          <div class="clear"></div>
+        
+          <div class="exp-main">
+            <div class="exp-left">
+              <span>December 2023 – May 2024</span>
+            </div>
+            <div class="exp-right">
+              <span class="exp-right-heading">Full Stack Web Developer</span>
+              <br />
+              <span class="exp-right-content">Adan Institute of Technology • Pakistan</span>
+              <br />
+              <span class="exp-right-content">- Developed and maintained full-stack web applications using Laravel PHP</span>
+              <br />
+              <span class="exp-right-content">- Provided training for web development technologies</span>
+              <br />
+              <span class="exp-right-content">- Contributed to the development of “WooQLaw”, a legal services platform, as an SRS Documentation Specialist</span>
+              <br />
+              <span class="exp-right-content">- Worked on “PakWeddings”, a Muslim matrimonial service provider, as a Junior Web Developer</span>
+            </div>
+          </div>
+          <div class="clear"></div>
+        
+          <div class="exp-main">
+            <div class="exp-left">
+              <span>March 2023 – December 2023</span>
+            </div>
+            <div class="exp-right">
+              <span class="exp-right-heading">Full Stack Web Developer & Web Trainer</span>
+              <br />
+              <span class="exp-right-content">ITS (Information Technology Skills) • Pakistan</span>
+              <br />
+              <span class="exp-right-content">- Led the development of “Journey Ease”, a platform for managing tourism and tour services</span>
+              <br />
+              <span class="exp-right-content">- Led the development of “Organic Glow”, a multivendor e-commerce platform for beauty products</span>
+              <br />
+              <span class="exp-right-content">- Led the development of “Swap Hub”, an e-commerce website based on the barter system</span>
+              <br />
+              <span class="exp-right-content">- Solely developed “GIMS Learning Hub”, a Learning Management System (LMS) for GIMS students</span>
+              <br />
+              <span class="exp-right-content">- Provided training and mentorship in programming languages, including JavaScript, PHP, HTML/CSS, Bootstrap, and Laravel, for final-year student projects</span>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </section>
+        
+        <section>
+          <h2>Education</h2>
+          <hr />
+          <div class="exp-main" style="margin-top: 2rem">
+            <div class="exp-left">
+              <span>October 2019 – June 2023</span>
+            </div>
+            <div class="exp-right">
+              <span class="exp-right-heading"
+                >Bachelor of Science (BS) in Computer Science</span
+              >
+              <br />
+              <span class="exp-right-content">
+                Gujrat Institute of Management Sciences , (PMAS) Arid Agriculture University
+            </span>
+            
+              <br />
+              <!-- <span class="exp-right-content"> - CGPA: 3.80 </span> -->
+            </div>
+          </div>
+          <div class="clear"></div>
+        </section>
+
+        <section>
+          <h2>Languages</h2>
+          <hr />
+          <p class="lang-content">- English (Fluent)</p>
+          <p class="lang-content">- Urdu (Native)</p>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
